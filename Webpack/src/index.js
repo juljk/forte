@@ -31,4 +31,15 @@ function component() {
     return element;
 }
 
-document.body.append(component());
+let element = component();
+document.body.append(element);
+
+if (module.hot) {
+    module.hot.accept('./print.js', function () {
+        console.log('Accepting the updated printMe module!');
+        
+        element.remove();
+        element = component();
+        document.body.append(element);
+    })
+}
