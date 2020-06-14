@@ -3,6 +3,10 @@ import './style.css';
 import Icon from '../assets/images/one.png';
 import printMe from './print.js';
 
+if (process.env.NODE_ENV !== 'production') {
+    console.log('We are in development mode!');
+}
+
 function createElem(elem) {
     return document.createElement(elem);
 }
